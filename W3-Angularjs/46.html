@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+      <div class="container col-md-4" ng-controller="personCtrl">
+	  
+          
+	          <input type="text" class="form-control" ng-model="user.fname" placeholder="Enter First-Name" /><br>
+		      <input type="text" class="form-control" ng-model="user.lname" placeholder="Enter Last-Name" /><br>
+			  <button type="button" class="btn btn-primary btn-md" ng-click="reset()">Reset</button>
+			 <br> From >>
+	          <br><p class="bg-primary pa">{{user}}</p>
+			  Master >>
+			  <p class="bg-primary pa">{{master}}</p>
+	      </div>
+	  
+     
+	 <script>
+	     var app = angular.module('myApp', []);
+         app.controller('personCtrl', function($scope) {
+             $scope.master = {
+                   fname: "Sudip",
+                   lname: "Sarker"
+             };
+			 $scope.reset=function(){
+			 
+			 $scope.user=angular.copy($scope.master);
+			 
+			 };
+			 $scope.reset();
+             
+        }); 
+	 </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+   <div class="container col-md-4"  ng-init="value1=0; value2=0">
+      <form>
+          <div class="form-group">
+            <input type="number" class="form-control" ng-model="value1" placeholder="Enter value1" /><br>
+		  
+		    <input type="number" class="form-control" ng-model="value2" placeholder="Enter value2" />
+          </div>
+		
+	 </form>
+	 
+	      
+      <p class="bg-primary">Total Value : {{value1*value2}}</p>
+	  
+	  
+   </div>
+
+
+</body>
+</html>

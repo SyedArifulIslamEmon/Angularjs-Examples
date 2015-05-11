@@ -1,0 +1,14 @@
+
+	     <form>
+             <div class="form-group">
+        
+             <input type="text" class="form-control" data-ng-model="city" placeholder="Enter Name"/>
+		  
+             </div>
+		
+	     </form>
+	
+        <p class="bg-primary" data-ng-repeat="cust in customers | filter:city | orderBy:'name'"> {{ cust.name | uppercase }} - {{ cust.city | lowercase }} </p> 
+        <a href="#/">View 1</a>
+
+	

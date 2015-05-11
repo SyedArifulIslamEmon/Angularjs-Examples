@@ -1,0 +1,25 @@
+
+	     <form>
+             <div class="form-group">
+        
+             <input type="text" class="form-control" data-ng-model="name" placeholder="Enter Name"/>
+		  
+             </div>
+		
+	     </form>
+	
+        <p class="bg-primary"  <li data-ng-repeat="cust in customers | filter:name | orderBy:'name'"> {{ cust.name | uppercase }} - {{ cust.city | lowercase }} </p>  
+
+        
+             <div class="form-group">
+        
+             <input type="text" class="form-control" data-ng-model="newCustomer.name" placeholder="Enter Name"><br>
+		     <input type="text" class="form-control" data-ng-model="newCustomer.city" placeholder="Enter city"><br>
+			 <button class="btn btn-primary btn-md" data-ng-click="addCustomer()">Add Customer</button>
+			 
+             </div>
+			 <a href="#/view2">View 2</a>
+		
+	     	
+	 
+	

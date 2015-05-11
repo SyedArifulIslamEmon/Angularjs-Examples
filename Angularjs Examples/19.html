@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html ng-app='countryApp'>
+
+<head>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <script src="js/angular.min.js"></script>
+
+    <style>
+       body{
+         margin-left:500px;
+  
+         margin-top: 100px;
+       }
+
+       p{
+        height :30px;
+  
+        padding :5px;
+
+       }
+    </style>
+</head>
+
+<body ng-controller='CountryCtrl'>
+    <div class="container col-md-4">
+	     <input type="text" class="form-control" ng-model="query" placeholder="Search"><br>
+        <table class="table table-bordered">
+	      <tr>
+             <th>Country</th>
+             <th>Population</th>
+          </tr>
+		  <tr ng-repeat="country in countries|filter:query|orderBy:'-population'">
+             <td>{{ country.name }}</td>
+             <td> {{country.population}}</td>
+          </tr>
+  
+  
+         </table>   
+	</div>
+    <script>
+	 var countryApp = angular.module('countryApp', []);
+     countryApp.controller('CountryCtrl', ['$scope', '$http', function (scope, http){
+        http.get('json/countries.json').success(function(data) {
+           scope.countries = data;
+        });
+     }]);
+    </script>
+</body>

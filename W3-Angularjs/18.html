@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+      <div class="container col-md-4" ng-init="names=['Sudip','Parvez','Rony','Sunny','Papon','Arfan','Rabbir']">
+       
+            <p class="bg-primary pa" ng-repeat="x in names">{{x}}</p> 
+	  
+     </div>
+
+
+</body>
+</html>

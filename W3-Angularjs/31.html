@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+      <div class="container col-md-4" ng-controller="customersCtrl">
+          <table class="table table-bordered">
+	          <tr>
+			     <th>Index</th>
+                <th>Name</th>
+                <th>Country</th>
+              </tr>
+		      <tr ng-repeat="x in names">
+			    <td>{{ $index + 1 }}</td>
+                <td>{{ x.Name }}</td>
+                <td>{{ x.Country}}</td>
+		     </tr> 
+          </table> 
+	  
+     </div>
+	 
+	 <script>
+	    
+         var app = angular.module('myApp', []);
+         app.controller('customersCtrl', function($scope, $http) {
+                $http.get("json/customers.json")
+                    .success(function(response) {
+	                     $scope.names = response.records;
+	                });
+        });
+</script>
+	 
+	 
+	 
+
+
+
+</body>
+</html>

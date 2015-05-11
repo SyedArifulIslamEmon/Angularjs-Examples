@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+
+<head>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <script src="js/angular.min.js"></script>
+
+    <style>
+       body{
+         margin-left:500px;
+  
+         margin-top: 200px;
+       }
+
+       li{
+        height :30px;
+  
+        padding :5px;
+
+       }
+	   
+    </style>
+</head>
+
+<body ng-controller="NameCtrl">
+   <div class="container col-md-4">
+         
+	     <ul ng-repeat="name in names">
+        <li class="bg-primary" > Boss {{name}}</li> <a href="" ng-click="removeName(name)">Remove</a>
+		</ul>
+		<form ng-submit="addName()">
+            <div class="form-group">
+              <input type="text" class="form-control" ng-model="fname" placeholder="Enter Frist Name"><br>
+		      <input type="submit"  class="btn btn-primary btn-md" value="Add">
+          </div>
+		
+	    </form>
+	  
+	  
+	</div>
+    <script>
+       var nameApp = angular.module('nameApp', []);
+	   nameApp.controller('NameCtrl', function ($scope){
+	     $scope.names = ['Parvez', 'Rony', 'Rabbir'];
+		 
+		 $scope.addName=function(){
+		 
+		    $scope.names.push($scope.fname);
+			$scope.fname = '';
+		 };
+		 
+		 
+		  $scope.removeName = function(name) {
+             var i = $scope.names.indexOf(name);
+              $scope.names.splice(i, 1);
+          };
+	
+	   });
+    </script>
+</body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+   <div class="container col-md-4" >
+      <form  ng-controller="validateCtrl" name="myForm" novalidate>
+          <div class="form-group">
+            <input type="text" class="form-control"  placeholder="Enter Name" name="user" ng-model="user" required>
+			<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+            <span ng-show="myForm.user.$error.required">Username is required.</span>
+            </span><br>
+			
+			<input type="email" class="form-control"  placeholder="Enter Name" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+            <span ng-show="myForm.email.$error.required">Email is required.</span>
+            <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+            </span>
+          </div>
+		  
+		  <button type="button" class="btn btn-primary btn-md" ng-click="submit()" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+  myForm.email.$dirty && myForm.email.$invalid">Submit</button>
+		
+	 </form>
+	  
+   </div>
+   
+   <script>
+    var app = angular.module('myApp', []);
+         app.controller('validateCtrl', function($scope) {
+             $scope.user="dfdfd";
+             $scope.email="dfdfdf@gmail.com";
+			 
+			 $scope.submit=function(){
+			 
+			 alert("======Submited=======");
+			 }
+        }); 
+
+   </script>
+</body>
+</html>

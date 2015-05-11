@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+      <div class="container col-md-4" ng-init="names=[{name:'Sudip',city:'Rajshai'},
+                                                      {name:'Rabbir',city:'jatrabari'},
+												      {name:'Sunny',city:'Mirpur'},
+													  {name:'Parvez',city:'Mirpur'},
+													  {name:'Arfan',city:'Kolabagan'},
+													  {name:'Rony',city:'Cantoinment'}
+													  ]">
+       
+             <p class="bg-primary pa" ng-repeat="x in names">{{x.name+" , "+x.city}}</p> 
+	  
+     </div>
+
+
+</body>
+</html>

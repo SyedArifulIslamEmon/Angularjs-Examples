@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="">
+
+<head>
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <script src="js/angular.min.js"></script>
+
+    <style>
+       body{
+         margin-left:500px;
+  
+         margin-top: 200px;
+       }
+
+       p{
+        height :30px;
+  
+        padding :5px;
+
+       }
+    </style>
+</head>
+
+<body >
+    <div class="container col-md-4" data-ng-controller="SimpleController">
+	     <form>
+             <div class="form-group">
+        
+             <input type="text" class="form-control" data-ng-model="name" placeholder="Enter Name"/>
+		  
+             </div>
+		
+	     </form>
+	
+        <p class="bg-primary" data-ng-repeat="cust in customers | filter:name|orderBy:'nome'"> {{cust.name|uppercase}} -{{cust.city|lowercase}} </p>   
+	</div>
+	
+	<script>
+       function SimpleController($scope){
+           $scope.customers = [
+             { name: 'Dave Jones', city: 'Phoenix' },
+             { name: 'Jamie Riley', city: 'Atlanta' },
+             { name: 'Heedy Wahlin', city: 'Chandler' },
+             { name: 'Thomas Winter', city: 'Seatle' },
+           ];
+        }
+    </script>
+   
+</body>

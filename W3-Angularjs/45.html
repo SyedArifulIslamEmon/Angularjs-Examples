@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src= "js/angular.min.js"></script>
+
+<style>
+  body{
+  margin-left:500px;
+  
+  margin-top: 200px;
+}
+
+.pa{
+ 
+  height :30%;
+  
+  padding :5%;
+
+}
+</style>
+</head>
+
+<body>
+   <div class="container col-md-4" ng-app="myNoteApp" ng-controller="myNoteCtrl"  >
+    
+	  
+		  
+		  <textarea class="form-control" rows="5" id="comment" ng-model="message"></textarea><br>
+		  
+		  <p>
+		  <button type="button" class="btn btn-primary btn-md" ng-click="save()">Save</button>
+		  <button type="button" class="btn btn-primary btn-md" ng-click="clear()">Clear</button>
+		  
+		  </p>
+		  
+	       <p class="bg-primary pa">Number of characters Left  >> <span ng-bind="left()"></span></p>
+	
+	
+	
+	 	  
+    </div>
+	
+	<script>
+	
+	var app = angular.module("myNoteApp", []); 
+	app.controller("myNoteCtrl", function($scope) {
+    $scope.message = "";
+    $scope.left  = function() {return 100 - $scope.message.length;};
+    $scope.clear = function() {$scope.message = "";};
+    $scope.save  = function() {alert("Note Saved");};
+}); 
+	  
+	</script>
+
+</body>
+</html>

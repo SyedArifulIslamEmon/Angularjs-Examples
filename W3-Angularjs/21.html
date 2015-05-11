@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+
+<style>
+    body{
+      margin-left:500px;
+  
+      margin-top: 200px;
+   }
+
+   p{
+      height :30px;
+  
+      padding :5px;
+   }
+</style>
+</head>
+
+<body>
+   <div class="container col-md-4"  ng-controller="personCtrl">
+      <form>
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="fname" placeholder="Enter First-Name" /><br>
+		  
+		    <input type="text" class="form-control" ng-model="lname" placeholder="Enter Last-Name" />
+          </div>
+		
+	 </form>
+	 
+	      
+      <p class="bg-primary">Full Name : {{fullName()}}</p>
+	  
+	  
+   </div>
+   
+   <script>
+       var app = angular.module('myApp', []);
+       app.controller('personCtrl', function($scope) {
+              $scope.fname = "Sudip";
+              $scope.lname = "Sarker";
+			  $scope.fullName = function() {
+                   return $scope.fname + " " + $scope.lname;
+              }
+       });
+   </script>
+
+</body>
+</html>
